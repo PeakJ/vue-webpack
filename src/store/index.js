@@ -1,30 +1,20 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
+import mutations from './mutations'
+import actions from './actions'
+import getters from './getters'
 Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
       count: 0,
-      name: 'bryce'
+      name: 'bryce',
+      todos: [
+        { id: 1, text: 'text1', done: true },
+        { id: 2, text: 'text2', done: false }
+      ]
     },
-    mutations: {
-      increment (state) {
-        state.count++
-      },
-      changeName (state,payload){
-        Object.assign(state,payload)
-      }
-    },
-    actions: {
-      incrementAsync (context) {
-        setTimeout(() => {
-          context.commit('increment')
-        }, 1000)
-      },
-      changeName ({commit},payload){
-        setTimeout(() => {
-          commit('changeName',payload)
-        }, 1000)
-      }
-    }
+    mutations: mutations,
+    actions: actions,
+    getters: getters
   })
   export default store;

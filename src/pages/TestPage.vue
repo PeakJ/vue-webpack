@@ -3,15 +3,16 @@
     <div>test页面</div>
     <div>data:{{testValue}}</div>
     <div>computed:{{testComputed}}</div>
+    <div>getters:{{doneTodos.length}}</div>
     <div>name:{{name}}</div>
     <div class="my-div">{{count}}</div>
     <button @click="add">点击增加</button>
     <button @click="addAsync">点击异步增加</button>
-    <button @click="changeName">改变名字</button>
+    <button @click="changeName({name:'newName'})">改变名字</button>
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters, mapMutations, mapActions} from "vuex";
 export default {
   name: "TestPage",
   data() {
@@ -23,26 +24,25 @@ export default {
     testComputed() {
       return this.testValue + "computed";
     },
-    // ...mapState({
-    //   count: "count"
-    // })
-     ...mapState([
-       'count',
-       'name'
-     ])
+     ...mapState({
+       count: 'count',
+       name: 'name'
+     }),
+     ...mapGetters({
+       doneTodos: 'doneTodos'
+     })
   },
   methods: {
-    add() {
-      this.$store.commit("increment");
+    print() {
+      console.log('test')
     },
-    addAsync() {
-      this.$store.dispatch("incrementAsync");
-    },
-    changeName() {
-      this.$store.dispatch('changeName',{
-        name: 'newName'
-      })
-    }
+    ...mapMutations({
+      add: 'increment'
+    }),
+    ...mapActions({
+     addAsync: 'incrementAsync',
+     changeName: 'changeName'
+    })
   }
 };
 </script>
