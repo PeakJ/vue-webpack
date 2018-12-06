@@ -11,18 +11,19 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      // '/api': {
-      //   target: 'http://www.abc.com',  //目标接口域名
-      //   changeOrigin: true,  //是否跨域
-      //   pathRewrite: {
-      //     '^/api': '/api'   //重写接口
-      //   }
+      '/api': {
+        target: 'http://www.bing.com',  //目标接口域名
+        changeOrigin: true,  //是否跨域
+        pathRewrite: {
+          '^/api': '/'   //重写接口
+        }
+      }
     },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: true,
+    autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-

@@ -9,10 +9,12 @@
     <button @click="add">点击增加</button>
     <button @click="addAsync">点击异步增加</button>
     <button @click="changeName({name:'newName'})">改变名字</button>
+    <button @click="createRequest">发请求</button>
   </div>
 </template>
 <script>
-import { mapState, mapGetters, mapMutations, mapActions} from "vuex";
+import { mapState, mapGetters, mapMutations, mapActions} from "vuex"
+import { httpGet } from '../utils/http'
 export default {
   name: "TestPage",
   data() {
@@ -33,8 +35,18 @@ export default {
      })
   },
   methods: {
-    print() {
-      console.log('test')
+    createRequest() {
+      console.log('testRequest');
+      const params = {
+        format:'js',
+        idx: 1,
+        n: 1
+      }
+      httpGet('HPImageArchive.aspx',params)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => console.log(error))
     },
     ...mapMutations({
       add: 'increment'
