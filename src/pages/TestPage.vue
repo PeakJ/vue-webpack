@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>test页面</div>
-    <div>data:{{testValue}}</div>
+    <div v-text="testValue"></div>
     <div>computed:{{testComputed}}</div>
     <div>getters:{{doneTodos.length}}</div>
     <div>name:{{name}}</div>
