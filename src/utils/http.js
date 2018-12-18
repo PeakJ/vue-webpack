@@ -9,7 +9,7 @@ export const getCookie = (name) => {
         return null;
 }
 const token = getCookie('_app_token_v3');
-export const baseURL = process.env.NODE_ENV === 'production' ? 'https://api.example.com' : 'api/' 
+export const baseURL = process.env.NODE_ENV === 'production' ? 'https://api.example.com/' : 'api/' 
 axios.defaults.baseURL = baseURL
 if(token){
     axios.defaults.headers.common['Authorization'] = token

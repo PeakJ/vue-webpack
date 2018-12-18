@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import TestPage from '@/pages/TestPage'
+import TestVant from '@/pages/TestVant'
 
 Vue.use(Router)
 const router = new Router({
@@ -14,11 +15,19 @@ const router = new Router({
         title: 'HelloWorld'
       }
     }, {
-      path: '/test',
+      path: '/testPage',
       name: 'TestPage',
       component: TestPage,
       meta: {
         title: 'TestPage'
+      }
+    },
+    {
+      path: '/testVant',
+      name: 'TestVant',
+      component: TestVant,
+      meta: {
+        title: 'TestVant'
       }
     }
   ]
