@@ -6,6 +6,7 @@
 <script>
 import Vue from 'vue'
 import { Dialog } from "vant";
+import {accAdd} from "@/utils/math"
 Vue.use(Dialog);
 export default {
   methods: {
